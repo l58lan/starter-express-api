@@ -1,6 +1,6 @@
 // Helper / Utility functions
 let current_customer_id;
-let order_id;
+let order_id = 1;
 let script_to_head = (attributes_object) => {
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
