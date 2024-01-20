@@ -4,7 +4,7 @@ import "dotenv/config";
 import path from "path";
 
 const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, PORT = 3000 } = process.env;
-const base = "https://dress-goshawk.cyclic.app";
+const base = "https://api-m.paypal.com";
 const app = express();
 
 // host static files
