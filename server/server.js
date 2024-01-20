@@ -2,9 +2,14 @@ import express from "express";
 import fetch from "node-fetch";
 import "dotenv/config";
 import path from "path";
-
-const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, PORT = 8888 } = process.env;
-const base = "https://api-m.sandbox.paypal.com";
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: true
+const port = process.env.PORT || 3000;
+const PAYPAL_CLIENT_ID = AcAe5JdNa5YrK2HR9CFluATZ89s3bwqvuno_fhMEOzM3JzbYAEhQTgeadfgnVbEJrLaZ20r7lep4j0IE;
+const PAYPAL_CLIENT_SECRET = EABEdzG3Tk0VxC0WZ2gHcAJXHkw1if_9B-8tStLi5p1EX-is9xoy__Qk-f_Vh7bwc6ILR3ZmQbcMfUvH;
+const base = "https://api-m.paypal.com";
 const app = express();
 
 // host static files
@@ -17,21 +22,22 @@ app.use(express.json());
  * Generate an OAuth 2.0 access token for authenticating with PayPal REST APIs.
  * @see https://developer.paypal.com/api/rest/authentication/
  */
-const generateAccessToken = async () => {
-  try {
-    if (!PAYPAL_CLIENT_ID || !PAYPAL_CLIENT_SECRET) {
-      throw new Error("MISSING_API_CREDENTIALS");
-    }
-    const auth = Buffer.from(
-      PAYPAL_CLIENT_ID + ":" + PAYPAL_CLIENT_SECRET,
-    ).toString("base64");
-    const response = await fetch(`${base}/v1/oauth2/token`, {
-      method: "POST",
-      body: "grant_type=client_credentials",
-      headers: {
-        Authorization: `Basic ${auth}`,
-      },
-    });
+function get_access_token() {
+    const auth = `${PAYPAL_CLIENT_ID}:${PAYPAL_CLIENT_SECRET}`
+    const data = 'grant_type=client_credentials'
+    return fetch(endpoint_url + '/v1/oauth2/token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': `Basic ${Buffer.from(auth).toString('base64')}`
+            },
+            body: data
+        })
+        .then(res => res.json())
+        .then(json => {
+            return json.access_token;
+        })
+}
 
     const data = await response.json();
     return data.access_token;
