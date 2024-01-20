@@ -2,10 +2,10 @@
   "name": "ppcp-starter-node",
   "version": "1.0.0",
   "description": "Starter code for a Node.js app for PayPal Complete Payments - Advanced Checkout: Advanced Credit and Debit Cards",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
