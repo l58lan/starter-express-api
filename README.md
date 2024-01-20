@@ -18,36 +18,26 @@
   <hr />
 </div>
 
-# PayPal JavasScript (NodeJS) FullStack Standard Checkout
+# PayPal Advanced Checkout Tutorial
 
-This sample app shows you how to integrate PayPal into your JavasScript app for the [standard checkout](https://developer.paypal.com/docs/checkout/standard/integrate/) workflow.
+This is the example code for the YouTube video, [How to Integrate PayPal Advanced Checkout](https://www.youtube.com/watch?v=pHbeILqVjOk)
 
-## Run this project
+## Getting Started
 
-### PayPal Codespaces
-[![Open Code In GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/paypaldev/PayPal-JavaScript-FullStack-Standard-Checkout-Sample?devcontainer_path=.devcontainer%2Fdevcontainer.json)
+Grab your PayPal CLIENT ID and SECRET and fill them in the following files:
 
-### Locally
+- [.env](https://github.com/rauljr7/ppcp_advanced_acdc_tutorial/blob/main/.env)
+- [script.js](https://github.com/rauljr7/ppcp_advanced_acdc_tutorial/blob/main/script.js)
+- If you want to use a port other than 3000, make sure you adjust the [.env file here](https://github.com/rauljr7/ppcp_advanced_acdc_tutorial/blob/main/.env#L1) and also adjust that in the main javascript file in these locations:
+  - [script.js#L30](https://github.com/rauljr7/ppcp_advanced_acdc_tutorial/blob/main/script.js#L30), [script.js#L97](https://github.com/rauljr7/ppcp_advanced_acdc_tutorial/blob/main/script.js#L97), [script.js#L108](https://github.com/rauljr7/ppcp_advanced_acdc_tutorial/blob/main/script.js#L108), [script.js#L140](https://github.com/rauljr7/ppcp_advanced_acdc_tutorial/blob/main/script.js#L140), [script.js#L206](https://github.com/rauljr7/ppcp_advanced_acdc_tutorial/blob/main/script.js#L206)
+- If you want to use SendGrid for sending emails, add your SendGrid API Key in the [index.js file here](https://github.com/rauljr7/ppcp_advanced_acdc_tutorial/blob/main/index.js#L160) and you can edit the email HTML content in the [email_content_html variable here](https://github.com/rauljr7/ppcp_advanced_acdc_tutorial/blob/main/index.js#L161)
 
-In your terminal run:
-
-`npm start` and navigate to [http://localhost:8888/](http://localhost:8888/).
-
-### Frontend
-
-- Open the `checkout.html` and resplace the `test` string in the script tag with your PayPal Client ID.
-
-### Backend
-
-- Rename the `.env.example` file to `.env`.
-- Inside of the `.env` file, enter your PayPal _client ID_ for the `PAYPAL_CLIENT_ID` and your PayPal _app secret_ for the `PAYPAL_CLIENT_SECRET` enviroment variables.
-- Run `npm install` in your terminal
-- Run `npm start` in your terminal
+Once you have configured your credentials, you can run `npm i` to install the packages and start your app with `node index`
 
 ## PayPal Developer Community
 
-The PayPal Developer community helps you build your career while improving your products and the developer experience. You’ll be able to contribute code and documentation, meet new people and learn from the open-source community.
+The PayPal Developer community helps you build your career, while also improving PayPal products and the developer experience. You’ll be able to contribute code and documentation, meet new people and learn from the open source community.
 
 - Website: [developer.paypal.com](https://developer.paypal.com)
 - Twitter: [@paypaldev](https://twitter.com/paypaldev)
-- GitHub: [@paypal](https://github.com/paypal)
+- Github: [@paypal](https://github.com/paypal)
