@@ -1,182 +1,98 @@
-import express from 'express';
-import fetch from 'node-fetch';
-import 'dotenv/config';
-const app = express();
-app.use(express.json());
-app.use(express.urlencoded({
-    extended: true
-}));
-//You will only need this line for localhost self-cert SendGrid REST API
-//If you don't plan on using SendGrid with the REST method below or
-//if your dev environment isn't localhost but a secure HTTPS standard website URL,
-//then you will not need this line and shouldn't use it (for security)
-
-const port = process.env.PORT || 3000;
-const environment = process.env.ENVIRONMENT || 'production';
-const client_id = process.env.CLIENT_ID;
-const client_secret = process.env.CLIENT_SECRET;
-const endpoint_url = environment === 'production' ? 'https://api-m.paypal.com' : 'https://api-m.sandbox.paypal.com';
-
-/**
- * Creates an order and returns it as a JSON response.
- * @function
- * @name createOrder
- * @memberof module:routes
- * @param {object} req - The HTTP request object.
- * @param {object} req.body - The request body containing the order information.
- * @param {string} req.body.intent - The intent of the order.
- * @param {object} res - The HTTP response object.
- * @returns {object} The created order as a JSON response.
- * @throws {Error} If there is an error creating the order.
- */
-app.post('/create_order', (req, res) => {
-    get_access_token()
-        .then(access_token => {
-            let order_data_json = {
-                'intent': req.body.intent.toUpperCase(),
-                'purchase_units': [{
-                    'amount': {
-                        'currency_code': 'USD',
-                        'value': '90.00'
-                    }
-                }]
-            };
-            const data = JSON.stringify(order_data_json)
-
-            fetch(endpoint_url + '/v2/checkout/orders', { //https://developer.paypal.com/docs/api/orders/v2/#orders_create
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${access_token}`
-                    },
-                    body: data
-                })
-                .then(res => res.json())
-                .then(json => {
-                    res.send(json);
-                }) //Send minimal data to client
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).send(err)
-        })
-});
-
-/**
- * Completes an order and returns it as a JSON response.
- * @function
- * @name completeOrder
- * @memberof module:routes
- * @param {object} req - The HTTP request object.
- * @param {object} req.body - The request body containing the order ID and intent.
- * @param {string} req.body.order_id - The ID of the order to complete.
- * @param {string} req.body.intent - The intent of the order.
- * @param {string} [req.body.email] - Optional email to send receipt.
- * @param {object} res - The HTTP response object.
- * @returns {object} The completed order as a JSON response.
- * @throws {Error} If there is an error completing the order.
- */
-app.post('/complete_order', (req, res) => {
-    get_access_token()
-        .then(access_token => {
-            fetch(endpoint_url + '/v2/checkout/orders/' + req.body.order_id + '/' + req.body.intent, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${access_token}`
-                    }
-                })
-                .then(res => res.json())
-                .then(json => {
-                    console.log(json);
-                    //Remove this if you don't want to send email with SendGrid
-                    if (json.id) {
-                      send_email_receipt({"id": json.id, "email": req.body.email});
-                    }
-                    res.send(json);
-                }) //Send minimal data to client
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).send(err)
-        })
-});
-
-/**
- * Retrieves a client token and returns it as a JSON response.
- * @function
- * @name getClientToken
- * @memberof module:routes
- * @param {object} req - The HTTP request object.
- * @param {object} req.body - The request body containing the access token and optional customer ID.
- * @param {string} req.body.access_token - The access token used for authorization.
- * @param {string} [req.body.customer_id] - Optional customer ID to be included in the request.
- * @param {object} res - The HTTP response object.
- * @returns {object} The client token as a JSON response.
- * @throws {Error} If there is an error retrieving the client token.
- */
-app.post("/get_client_token", (req, res) => {
-    get_access_token()
-      .then((access_token) => {
-        const payload = req.body.customer_id
-          ? JSON.stringify({ customer_id: req.body.customer_id })
-          : null;
-  
-        fetch(endpoint_url + "/v1/identity/generate-token", {
-          method: "post",
+window.paypal
+  .Buttons({
+    style: {
+      shape: "pill",
+      layout: "vertical",
+    },
+    async createOrder() {
+      try {
+        const response = await fetch("/api/orders", {
+          method: "POST",
           headers: {
-            Authorization: `Bearer ${access_token}`,
             "Content-Type": "application/json",
           },
-          body: payload,
-        })
-          .then((response) => response.json())
-          .then((data) => res.send(data.client_token));
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        res.status(500).send("An error occurred while processing the request.");
-      });
-  });
-  
+          // use the "body" param to optionally pass additional order information
+          // like product ids and quantities
+          body: JSON.stringify({
+            cart: [
+              {
+                id: "34234234",
+                quantity: "90",
+              },
+            ],
+          }),
+        });
 
-// Helper / Utility functions
+        const orderData = await response.json();
 
-//Servers the index.html file
-app.get('/', (req, res) => {
-    res.sendFile(process.cwd() + '/index.html');
-});
-//Servers the style.css file
-app.get('/style.css', (req, res) => {
-    res.sendFile(process.cwd() + '/style.css');
-});
-//Servers the script.js file
-app.get('/script.js', (req, res) => {
-    res.sendFile(process.cwd() + '/script.js');
-});
+        if (orderData.id) {
+          return orderData.id;
+        } else {
+          const errorDetail = orderData?.details?.[0];
+          const errorMessage = errorDetail
+            ? `${errorDetail.issue} ${errorDetail.description} (${orderData.debug_id})`
+            : JSON.stringify(orderData);
 
+          throw new Error(errorMessage);
+        }
+      } catch (error) {
+        console.error(error);
+        resultMessage(`Could not initiate PayPal Checkout...<br><br>${error}`);
+      }
+    },
+    async onApprove(data, actions) {
+      try {
+        const response = await fetch(`/api/orders/${data.orderID}/capture`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
 
+        const orderData = await response.json();
+        // Three cases to handle:
+        //   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
+        //   (2) Other non-recoverable errors -> Show a failure message
+        //   (3) Successful transaction -> Show confirmation or thank you message
 
-//PayPal Developer YouTube Video:
-//How to Retrieve an API Access Token (Node.js)
-//https://www.youtube.com/watch?v=HOkkbGSxmp4
-function get_access_token() {
-    const auth = `${client_id}:${client_secret}`
-    const data = 'grant_type=client_credentials'
-    return fetch(endpoint_url + '/v1/oauth2/token', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': `Basic ${Buffer.from(auth).toString('base64')}`
-            },
-            body: data
-        })
-        .then(res => res.json())
-        .then(json => {
-            return json.access_token;
-        })
+        const errorDetail = orderData?.details?.[0];
+
+        if (errorDetail?.issue === "INSTRUMENT_DECLINED") {
+          // (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
+          // recoverable state, per https://developer.paypal.com/docs/checkout/standard/customize/handle-funding-failures/
+          return actions.restart();
+        } else if (errorDetail) {
+          // (2) Other non-recoverable errors -> Show a failure message
+          throw new Error(`${errorDetail.description} (${orderData.debug_id})`);
+        } else if (!orderData.purchase_units) {
+          throw new Error(JSON.stringify(orderData));
+        } else {
+          // (3) Successful transaction -> Show confirmation or thank you message
+          // Or go to another URL:  actions.redirect('thank_you.html');
+          const transaction =
+            orderData?.purchase_units?.[0]?.payments?.captures?.[0] ||
+            orderData?.purchase_units?.[0]?.payments?.authorizations?.[0];
+          resultMessage(
+            `Transaction ${transaction.status}: ${transaction.id}<br><br>See console for all available details`,
+          );
+          console.log(
+            "Capture result",
+            orderData,
+            JSON.stringify(orderData, null, 2),
+          );
+        }
+      } catch (error) {
+        console.error(error);
+        resultMessage(
+          `Sorry, your transaction could not be processed...<br><br>${error}`,
+        );
+      }
+    },
+  })
+  .render("#paypal-button-container");
+
+// Example function to show a result to the user. Your site's UI library can be used instead.
+function resultMessage(message) {
+  const container = document.querySelector("#result-message");
+  container.innerHTML = message;
 }
-
-app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`)
-})
