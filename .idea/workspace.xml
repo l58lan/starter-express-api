@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45680972-db54-4fbe-bf2e-eb1a29395199" name="Changes" comment="nver">
-      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
-    </list>
+    <list default="true" id="45680972-db54-4fbe-bf2e-eb1a29395199" name="Changes" comment="nver" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,7 +60,31 @@
       <option name="project" value="LOCAL" />
       <updated>1705712183464</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="nver">
+      <option name="closed" value="true" />
+      <created>1705712347653</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705712347653</updated>
+    </task>
+    <task id="LOCAL-00007" summary="nver">
+      <option name="closed" value="true" />
+      <created>1705712513204</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705712513204</updated>
+    </task>
+    <task id="LOCAL-00008" summary="nver">
+      <option name="closed" value="true" />
+      <created>1705712775949</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1705712775949</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
