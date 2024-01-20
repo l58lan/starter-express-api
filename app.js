@@ -1,7 +1,7 @@
 window.paypal
   .Buttons({
     style: {
-      shape: "pill",
+      shape: "rect",
       layout: "vertical",
     },
     async createOrder() {
@@ -16,8 +16,8 @@ window.paypal
           body: JSON.stringify({
             cart: [
               {
-                id: "34234234",
-                quantity: "90",
+                id: "YOUR_PRODUCT_ID",
+                quantity: "YOUR_PRODUCT_QUANTITY",
               },
             ],
           }),
