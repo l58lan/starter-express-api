@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 import "dotenv/config";
 import path from "path";
 
-const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, PORT = 3000 } = process.env;
+const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET, PORT = 8888 } = process.env;
 const base = "https://api-m.sandbox.paypal.com";
 const app = express();
 
@@ -59,7 +59,7 @@ const createOrder = async (cart) => {
       {
         amount: {
           currency_code: "USD",
-          value: "90.00",
+          value: "100.00",
         },
       },
     ],
@@ -147,3 +147,6 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve("./client/checkout.html"));
 });
 
+app.listen(PORT, () => {
+  console.log(`Node server listening at http://localhost:${PORT}/`);
+});
