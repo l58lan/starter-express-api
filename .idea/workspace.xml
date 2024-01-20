@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45680972-db54-4fbe-bf2e-eb1a29395199" name="Changes" comment="6576575" />
+    <list default="true" id="45680972-db54-4fbe-bf2e-eb1a29395199" name="Changes" comment="new" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -244,12 +244,45 @@
       <option name="project" value="LOCAL" />
       <updated>1705718412102</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="6576575">
+      <option name="closed" value="true" />
+      <created>1705718515261</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1705718515261</updated>
+    </task>
+    <task id="LOCAL-00030" summary="6576575">
+      <option name="closed" value="true" />
+      <created>1705718655694</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1705718655694</updated>
+    </task>
+    <task id="LOCAL-00031" summary="6576575">
+      <option name="closed" value="true" />
+      <created>1705718759665</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1705718759665</updated>
+    </task>
+    <task id="LOCAL-00032" summary="new">
+      <option name="closed" value="true" />
+      <created>1705718780509</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1705718780509</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="nver" />
     <MESSAGE value="6576575" />
-    <option name="LAST_COMMIT_MESSAGE" value="6576575" />
+    <MESSAGE value="new" />
+    <option name="LAST_COMMIT_MESSAGE" value="new" />
   </component>
 </project>
