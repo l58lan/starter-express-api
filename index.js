@@ -6,6 +6,7 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
+
 //You will only need this line for localhost self-cert SendGrid REST API
 //If you don't plan on using SendGrid with the REST method below or
 //if your dev environment isn't localhost but a secure HTTPS standard website URL,
