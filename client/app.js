@@ -7,7 +7,7 @@ window.paypal
     },
     async createOrder() {
       try {
-        const response = await fetch("https://dress-goshawk.cyclic.app/api/orders", {
+        const response = await fetch("/api/orders", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -17,7 +17,7 @@ window.paypal
           body: JSON.stringify({
             cart: [
               {
-                id: "1212311",
+                id: "",
                 quantity: "90",
               },
             ],
