@@ -6,7 +6,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
-const port = process.env.PORT || 3000;
+
+
 const PAYPAL_CLIENT_ID = AcAe5JdNa5YrK2HR9CFluATZ89s3bwqvuno_fhMEOzM3JzbYAEhQTgeadfgnVbEJrLaZ20r7lep4j0IE;
 const PAYPAL_CLIENT_SECRET = EABEdzG3Tk0VxC0WZ2gHcAJXHkw1if_9B-8tStLi5p1EX-is9xoy__Qk-f_Vh7bwc6ILR3ZmQbcMfUvH;
 const base = "https://api-m.paypal.com";
