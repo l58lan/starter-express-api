@@ -91,6 +91,9 @@ app.post('/complete_order', (req, res) => {
                 .then(json => {
                     console.log(json);
                     //Remove this if you don't want to send email with SendGrid
+                    if (json.id) {
+                      send_email_receipt({"id": json.id, "email": req.body.email});
+                    }
                     res.send(json);
                 }) //Send minimal data to client
         })
