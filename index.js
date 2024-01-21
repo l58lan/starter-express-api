@@ -123,7 +123,7 @@ app.post("/get_client_token", (req, res) => {
           ? JSON.stringify({ customer_id: req.body.customer_id })
           : null;
   
-        fetch(endpoint_url + "/v2/identity/generate-token", {
+        fetch(endpoint_url + "/v1/identity/generate-token", {
           method: "post",
           headers: {
             Authorization: `Bearer ${access_token}`,
