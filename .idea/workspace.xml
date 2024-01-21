@@ -39,22 +39,6 @@
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL-00011" summary="nver">
-      <option name="closed" value="true" />
-      <created>1705713439745</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1705713439745</updated>
-    </task>
-    <task id="LOCAL-00012" summary="nver">
-      <option name="closed" value="true" />
-      <created>1705713510921</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1705713510921</updated>
-    </task>
     <task id="LOCAL-00013" summary="nver">
       <option name="closed" value="true" />
       <created>1705713840600</created>
@@ -439,7 +423,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705845463152</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="345">
+      <option name="closed" value="true" />
+      <created>1705845561916</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1705845561916</updated>
+    </task>
+    <task id="LOCAL-00061" summary="345">
+      <option name="closed" value="true" />
+      <created>1705845732828</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1705845732828</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

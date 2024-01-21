@@ -48,7 +48,7 @@ let handle_click = (event) => {
     }
 }
 document.addEventListener("click", handle_click);
-const paypal_sdk_url = "https://www.sandbox.paypal.com/sdk/js";
+const paypal_sdk_url = "https://www.paypal.com/sdk/js";
 const client_id = "AXnYxHXuHVkTEYBw-k53UZH9g6hR1ZOKhG5P6XXCnWtAWtw8WTCCoon1m4-3jcPY3An19jDy1eAyoLtd";
 const currency = "USD";
 const intent = "capture";
