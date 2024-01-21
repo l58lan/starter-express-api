@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="45680972-db54-4fbe-bf2e-eb1a29395199" name="Changes" comment="new">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,14 +41,6 @@
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL-00003" summary="nver">
-      <option name="closed" value="true" />
-      <created>1705711436959</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1705711436959</updated>
-    </task>
     <task id="LOCAL-00004" summary="nver">
       <option name="closed" value="true" />
       <created>1705712097790</created>
@@ -442,7 +433,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705843570066</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="new">
+      <option name="closed" value="true" />
+      <created>1705844234984</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1705844234984</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

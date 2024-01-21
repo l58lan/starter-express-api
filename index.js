@@ -16,7 +16,7 @@ const port = process.env.PORT || 8888;
 const environment = process.env.ENVIRONMENT || 'production';
 const client_id = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;
-const endpoint_url = 'https://api-m.paypal.com';
+const endpoint_url = 'https://api.paypal.com';
 
 /**
  * Creates an order and returns it as a JSON response.
@@ -180,6 +180,3 @@ function get_access_token() {
         })
 }
 
-app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`)
-})
