@@ -12,11 +12,11 @@ app.use(express.urlencoded({
 //if your dev environment isn't localhost but a secure HTTPS standard website URL,
 //then you will not need this line and shouldn't use it (for security)
 
-const port = process.env.PORT || 3000;
-const environment = process.env.ENVIRONMENT || 'production';
+//const port = process.env.PORT || 3000;
+//const environment = process.env.ENVIRONMENT || 'production';
 const client_id = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;
-const endpoint_url = 'https://api.paypal.com';
+const endpoint_url = 'https://api.m-paypal.com';
 
 /**
  * Creates an order and returns it as a JSON response.
