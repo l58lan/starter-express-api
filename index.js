@@ -180,3 +180,6 @@ function get_access_token() {
         })
 }
 
+app.listen(port, () => {
+    console.log(`Server listening at :${port}`)
+})
