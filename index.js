@@ -164,7 +164,7 @@ app.get('/script.js', (req, res) => {
 function get_access_token() {
     const auth = `${client_id}:${client_secret}`
     const data = 'grant_type=client_credentials'
-    return fetch(endpoint_url + '/v1/oauth2/token', {
+    return fetch(endpoint_url + '/v2/oauth2/token', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
