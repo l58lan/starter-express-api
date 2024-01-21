@@ -183,7 +183,7 @@ is_user_logged_in()
                 //be a requirement of your project to pass this info to card issuers
                 {
                   // Cardholder's first and last name
-                  cardholderName: "Ra2úl Uridsarte, JT.",
+                  cardholderName: "Ra2sdúl Uridsarte, JT.",
                   // Billing Address
                   billingAddress: {
                     // Street address, line 1
