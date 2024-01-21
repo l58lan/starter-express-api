@@ -38,7 +38,7 @@ app.post('/create_order', (req, res) => {
                 'purchase_units': [{
                     'amount': {
                         'currency_code': 'USD',
-                        'value': '5.00'
+                        'value': '90.00'
                     }
                 }]
             };
@@ -91,9 +91,6 @@ app.post('/complete_order', (req, res) => {
                 .then(json => {
                     console.log(json);
                     //Remove this if you don't want to send email with SendGrid
-                    if (json.id) {
-                      send_email_receipt({"id": json.id, "email": req.body.email});
-                    }
                     res.send(json);
                 }) //Send minimal data to client
         })
@@ -140,6 +137,8 @@ app.post("/get_client_token", (req, res) => {
       });
   });
   
+
+
 
 // Helper / Utility functions
 
