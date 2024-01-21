@@ -16,7 +16,7 @@ const port = process.env.PORT || 8888;
 const environment = process.env.ENVIRONMENT || 'production';
 const client_id = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;
-const endpoint_url = 'https://api.paypal.com';
+const endpoint_url = 'https://api-m.paypal.com';
 
 /**
  * Creates an order and returns it as a JSON response.
@@ -38,7 +38,7 @@ app.post('/create_order', (req, res) => {
                 'purchase_units': [{
                     'amount': {
                         'currency_code': 'USD',
-                        'value': '80.00'
+                        'value': '5.00'
                     }
                 }]
             };
@@ -91,9 +91,6 @@ app.post('/complete_order', (req, res) => {
                 .then(json => {
                     console.log(json);
                     //Remove this if you don't want to send email with SendGrid
-                    if (json.id) {
-                      send_email_receipt({"id": json.id, "email": req.body.email});
-                    }
                     res.send(json);
                 }) //Send minimal data to client
         })
@@ -122,7 +119,7 @@ app.post("/get_client_token", (req, res) => {
         const payload = req.body.customer_id
           ? JSON.stringify({ customer_id: req.body.customer_id })
           : null;
-  
+
         fetch(endpoint_url + "/v1/identity/generate-token", {
           method: "post",
           headers: {
@@ -139,7 +136,7 @@ app.post("/get_client_token", (req, res) => {
         res.status(500).send("An error occurred while processing the request.");
       });
   });
-  
+
 
 
 
@@ -181,5 +178,5 @@ function get_access_token() {
 }
 
 app.listen(port, () => {
-    console.log(`Server listening at :${port}`)
+    console.log(`Server listening at http://localhost:${port}`)
 })
