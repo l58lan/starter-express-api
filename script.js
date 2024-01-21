@@ -183,11 +183,11 @@ is_user_logged_in()
                 //be a requirement of your project to pass this info to card issuers
                 {
                   // Cardholder's first and last name
-                  cardholderName: "Raúl Uriarte, Jr.",
+                  cardholderName: "Ra2úl Uridsarte, JT.",
                   // Billing Address
                   billingAddress: {
                     // Street address, line 1
-                    streetAddress: "123 Springfield Rd",
+                    streetAddress: "76867 Springfield Rd",
                     // Street address, line 2 (Ex: Unit, Apartment, etc.)
                     extendedAddress: "",
                     // State

@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45680972-db54-4fbe-bf2e-eb1a29395199" name="Changes" comment="345" />
+    <list default="true" id="45680972-db54-4fbe-bf2e-eb1a29395199" name="Changes" comment="10б">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,38 +42,6 @@
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL-00016" summary="nver">
-      <option name="closed" value="true" />
-      <created>1705714189507</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1705714189507</updated>
-    </task>
-    <task id="LOCAL-00017" summary="nver">
-      <option name="closed" value="true" />
-      <created>1705714392302</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1705714392302</updated>
-    </task>
-    <task id="LOCAL-00018" summary="nver">
-      <option name="closed" value="true" />
-      <created>1705714445020</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1705714445020</updated>
-    </task>
-    <task id="LOCAL-00019" summary="nver">
-      <option name="closed" value="true" />
-      <created>1705714468461</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1705714468461</updated>
-    </task>
     <task id="LOCAL-00020" summary="6576575">
       <option name="closed" value="true" />
       <created>1705714491109</created>
@@ -439,7 +410,39 @@
       <option name="project" value="LOCAL" />
       <updated>1705846708545</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="345">
+      <option name="closed" value="true" />
+      <created>1705846804051</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1705846804051</updated>
+    </task>
+    <task id="LOCAL-00066" summary="345">
+      <option name="closed" value="true" />
+      <created>1705846913120</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1705846913120</updated>
+    </task>
+    <task id="LOCAL-00067" summary="345">
+      <option name="closed" value="true" />
+      <created>1705848058242</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1705848058242</updated>
+    </task>
+    <task id="LOCAL-00068" summary="10б">
+      <option name="closed" value="true" />
+      <created>1705848074290</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1705848074290</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,6 +453,7 @@
     <MESSAGE value="6576575" />
     <MESSAGE value="new" />
     <MESSAGE value="345" />
-    <option name="LAST_COMMIT_MESSAGE" value="345" />
+    <MESSAGE value="10б" />
+    <option name="LAST_COMMIT_MESSAGE" value="10б" />
   </component>
 </project>
